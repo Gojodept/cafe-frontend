@@ -3,21 +3,21 @@ import { useState } from "react";
 import axios from "axios";
 export default function Register() {
   const [user, setUser] = useState({});
-  const [error,setErrror]=useState();
-  const API_URL=import.meta.env.VITE_API_URL
-const handleSubmit = async () => {
-  console.log(user);
+  const [error, setErrror] = useState();
+  const API_URL = import.meta.env.VITE_API_URL;
+  const handleSubmit = async () => {
+    console.log(user);
 
-  try {
-    //const url = "http://localhost:8080/api/users/register";
-    const url =`${API_URL}/api/users/register`;
-    const result = await axios.post(url, user); // ✅ send user object
-    setErrror("✅ Registration successful")
-  } catch (err) {
-    console.error(err);
-    setErrror("Something went wrong.");
-  }
-};
+    try {
+      //const url = "http://localhost:8080/api/users/register";
+      const url = `${API_URL}/api/users/register`;
+      const result = await axios.post(url, user); // ✅ send user object
+      setErrror("✅ Registration successful");
+    } catch (err) {
+      console.error(err);
+      setErrror("Something went wrong.");
+    }
+  };
 
   return (
     <div>
