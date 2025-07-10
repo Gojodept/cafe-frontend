@@ -9,7 +9,7 @@ const handleSubmit = async () => {
 
   try {
     //const url = "http://localhost:8080/api/users/register";
-    const url ="https://cafe-backend-orc7jz9r2-arindamkahsyap0s-projects.vercel.app/"
+    const url ="https://cafe-backend-gamma.vercel.app/api/users/register"
     const result = await axios.post(url, user); // ✅ send user object
     setErrror("✅ Registration successful")
   } catch (err) {
