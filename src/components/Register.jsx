@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 export default function Register() {
   const [user, setUser] = useState({});
   const [error, setErrror] = useState();
@@ -54,6 +55,8 @@ export default function Register() {
         <button onClick={handleSubmit}>Submit</button>
       </p>
       {error && <p>{error}</p>}
+      <p>Already a user ?<Link to="/Login"> Login Here.</Link></p>
+      
     </div>
   );
 }

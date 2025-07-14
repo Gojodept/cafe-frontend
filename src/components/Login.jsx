@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 export default function Login() {
   const [user, setUser] = useState({});
   const [error, setErrror] = useState();
@@ -11,7 +12,9 @@ export default function Login() {
       //const url = "http://localhost:8080/api/users/login";
       const url = `${API_URL}/api/users/login`;
       const result = await axios.post(url, user); // ✅ send user object
+      
       setErrror("✅ Login Success");
+      
     } catch (err) {
       console.error(err);
       setErrror("Something went wrong.");
@@ -39,6 +42,8 @@ export default function Login() {
         <button onClick={handleSubmit}>Submit</button>
       </p>
       {error && <p>{error}</p>}
+      <Link to="/admin">Users</Link>
+      <Link to="/register"> Register</Link>
     </div>
   );
 }
