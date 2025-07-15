@@ -60,7 +60,11 @@ export default function Users() {
     }
     try {
       const url = `${API_URL}/api/users`;
-      const result = await axios.post(url, form);
+      const result = await axios.post(url, form,{
+        headers:{
+          Autherization:`Bearer ${localStorage.getItem("token")}`
+        }
+      });
       setError("User added succesfully");
       fetchUsers();
       resetForm();
