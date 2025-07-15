@@ -197,29 +197,22 @@ export default function Users() {
               <th>Role</th>
             </tr>
           </thead>
-          {Array.isArray(users) ? (
-  users.map((value) => (
-    <tbody key={value._id}>
-      <tr>
-        <td>{value.firstName}</td>
-        <td>{value.lastName}</td>
-        <td>{value.email}</td>
-        <td>{value.role}</td>
-        <td>
-          <button onClick={() => handleEdit(value)}>Edit</button>
-          <button onClick={() => handleDelete(value._id)}>Delete</button>
-        </td>
-      </tr>
-    </tbody>
-  ))
-) : (
-  <tbody>
-    <tr>
-      <td colSpan="5">No users found</td>
-    </tr>
-  </tbody>
-)}
-
+          {users.map((value) => (
+            <tbody key={value._id}>
+              <tr>
+                <td>{value.firstName}</td>
+                <td>{value.lastName}</td>
+                <td>{value.email}</td>
+                <td>{value.role}</td>
+                <td>
+                  <button onClick={() => handleEdit(value)}>Edit</button>
+                  <button onClick={() => handleDelete(value._id)}>
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          ))}
         </table>
       </div>
       <div>
