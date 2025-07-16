@@ -51,7 +51,7 @@ export default function Cart() {
       <h5>Order Value:{orderValue}</h5>
       <p>
         {user?.token ? (
-          <button>Place Order</button>
+          <button onClick={()=>{console.log(Procesing)}}>Place Order</button>
         ) : (
           <button onClick={() => Navigate("/login")}>Login to Order</button>
         )}
