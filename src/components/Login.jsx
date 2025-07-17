@@ -47,47 +47,44 @@
 //     </div>
 //   );
 // }
-import React, { useContext, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import { AppContext } from "../App";
-
 export default function Login() {
-  const { setUser } = useContext(AppContext); // <- just setUser here
-  const [form, setForm] = useState({ email: "", password: "" }); // <-- separate form state
+  const {user, setUser} = useContext(AppContext);
   const [error, setError] = useState();
   const Navigate = useNavigate();
   const API_URL = import.meta.env.VITE_API_URL;
-
   const handleSubmit = async () => {
     try {
       const url = `${API_URL}/api/users/login`;
-      const result = await axios.post(url, form); // sending form, not user
-      setUser(result.data); // now store logged-in user globally
-      localStorage.setItem("token", result.data.token); // optional
+      const result = await axios.post(url, user);
+      setUser(result.data);
       Navigate("/");
     } catch (err) {
       console.log(err);
-      setError("Invalid email or password");
+      setError("Something went wrong");
     }
   };
-
   return (
     <div>
       <h2>Login</h2>
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      {error}
       <p>
         <input
           type="text"
           placeholder="Email Address"
-          onChange={(e) => setForm({ ...form, email: e.target.value })}
+          onChange={(e) => setUser({ ...user, email: e.target.value })}
         />
       </p>
       <p>
         <input
           type="password"
           placeholder="Password"
-          onChange={(e) => setForm({ ...form, password: e.target.value })}
+          onChange={(e) => setUser({ ...user, password: e.target.value })}
         />
       </p>
       <p>
