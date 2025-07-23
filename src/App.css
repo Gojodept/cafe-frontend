@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Georgia", serif;
+  background-color: #f8f1e5;
+  color: #4b2e2e;
+  scroll-behavior: smooth;
+}
+
+.App-Container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #fffaf3;
+}
+
+main {
+  flex: 1;
+  padding: 30px 20px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+footer {
+  background-color: #f7e9dc;
+  text-align: center;
+  padding: 16px;
+  font-size: 14px;
+  color: #6f4e37;
+  border-top: 1px solid #e8d7c7;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

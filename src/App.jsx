@@ -15,6 +15,7 @@ import Login from "./components/Login";
 import Products from "./components/Products";
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import "./App.css";
+import Hero from "./components/Hero";
 export const AppContext = createContext();
 function App() {
   const [cart, setCart] = useState([]);
@@ -24,10 +25,11 @@ function App() {
       <AppContext.Provider value={{ cart, setCart, user, setUser }}>
         <BrowserRouter>
           <Header />
+          <Hero/>
           <Routes>
             <Route index element={<Product />} />
             <Route path="login" element={<Login />} />
-             <Route path="profile" element={<Profile />} />
+            <Route path="profile" element={<Profile />} />
             <Route path="register" element={<Register />} />
             <Route path="cart" element={<Cart />} />
             <Route path="order" element={<Order />} />

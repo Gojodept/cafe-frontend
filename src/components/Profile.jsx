@@ -76,6 +76,15 @@ export default function Profile() {
       </p>
       <p>
         <input
+          name="phoneNumber"
+          type="tel"
+          placeholder="Phone Number"
+          onChange={handleChange}
+          defaultValue={profile.phoneNumber}
+        />
+      </p>
+      <p>
+        <input
           name="password"
           type="password"
           placeholder="Password"

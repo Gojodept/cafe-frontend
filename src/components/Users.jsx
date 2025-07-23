@@ -251,6 +251,7 @@
 // }
 import React from "react";
 import { useEffect, useState } from "react";
+import "./Users.css";
 import { useRef } from "react";
 import { useContext } from "react";
 import { AppContext } from "../App";
@@ -265,6 +266,7 @@ export default function Users() {
     lastName: "",
     email: "",
     password: "",
+    phoneNumber: "",
     role: "",
   });
   const [page, setPage] = useState(1);
@@ -344,6 +346,7 @@ export default function Users() {
       lastName: user.lastName,
       email: user.email,
       password: user.password,
+      phoneNumber: user.phoneNumber || "",
       role: user.role,
     });
   };
@@ -384,6 +387,7 @@ export default function Users() {
       lastName: "",
       email: "",
       password: "",
+      phoneNumber: "",
       role: "",
     });
   };
@@ -416,6 +420,13 @@ export default function Users() {
             placeholder="Email Address"
             onChange={handleChange}
             required
+          />
+          <input
+            name="phoneNumber"
+            value={form.phoneNumber}
+            type="tel"
+            placeholder="Phone Number"
+            onChange={handleChange}
           />
           <input
             name="password"
@@ -464,6 +475,7 @@ export default function Users() {
               <th>First Name</th>
               <th>Last Name</th>
               <th>Email Address</th>
+              <th>Phone Number</th>
               <th>Role</th>
             </tr>
           </thead>
@@ -473,6 +485,7 @@ export default function Users() {
                 <td>{value.firstName}</td>
                 <td>{value.lastName}</td>
                 <td>{value.email}</td>
+                <td>{value.phoneNumber || "N/A"}</td>
                 <td>{value.role}</td>
                 <td>
                   <button onClick={() => handleEdit(value)}>Edit</button>
